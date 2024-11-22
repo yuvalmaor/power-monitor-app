@@ -1,0 +1,18 @@
+tasks:
+  - init: |
+      sudo apt-get update
+      sudo apt-get install -y curl
+      curl -O https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.19.3-stable.tar.xz
+      tar xf flutter_linux_3.19.3-stable.tar.xz
+      export PATH="$PATH:`pwd`/flutter/bin"
+      flutter config --no-analytics
+      flutter doctor
+      flutter pub get
+    command: |
+      export PATH="$PATH:`pwd`/flutter/bin"
+      flutter run -d web
+
+vscode:
+  extensions:
+    - Dart-Code.dart-code
+    - Dart-Code.flutter
